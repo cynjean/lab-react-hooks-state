@@ -22,7 +22,7 @@ const App = () => {
       <header className="appHeader">
         <div>
           <p className="eyebrow">Fresh picks, simple shopping</p>
-          <h1>Grocery Basket</h1>
+          <h1>Shopping App</h1>
           <p className="intro">Choose your essentials and keep your cart organized.</p>
         </div>
         <DarkModeToggle
@@ -45,6 +45,7 @@ const App = () => {
                 <option value="all">All</option>
                 <option value="Fruits">Fruits</option>
                 <option value="Dairy">Dairy</option>
+                <option value="Veggies">Veggies</option>
               </select>
             </label>
           </div>
