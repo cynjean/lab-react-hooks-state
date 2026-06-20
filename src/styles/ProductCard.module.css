@@ -1,5 +1,64 @@
-/* TODO (optional): Style the product card container */
+.card {
+  display: flex;
+  min-height: 230px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-muted);
+  flex-direction: column;
+}
 
-/* TODO (optional): Add special styling for out-of-stock products */
+.outOfStock {
+  border-style: dashed;
+}
 
-/* TODO (optional): Style the add/remove button */
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 24px;
+  font-size: 0.72rem;
+  font-weight: 750;
+}
+
+.category {
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.inStock {
+  color: var(--accent);
+}
+
+.stockWarning {
+  color: var(--warm);
+}
+
+.card h3 {
+  margin-bottom: 4px;
+  font-size: 1.35rem;
+}
+
+.price {
+  margin-bottom: 24px;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.card button {
+  width: 100%;
+  min-height: 42px;
+  margin-top: auto;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  color: var(--surface);
+  background: var(--accent);
+  cursor: pointer;
+  font-weight: 800;
+  transition: background 160ms ease;
+}
+
+.card button:hover {
+  background: var(--accent-hover);
+}

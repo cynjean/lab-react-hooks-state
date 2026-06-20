@@ -1,3 +1,17 @@
-/* TODO (optional): Define styles for dark mode */
+.toggle {
+  flex: 0 0 auto;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  background: var(--surface);
+  cursor: pointer;
+  font-weight: 750;
+  transition: border-color 160ms ease, background 160ms ease;
+}
 
-/* TODO (optional): Ensure text and background colors adjust for dark mode */
+.toggle:hover {
+  border-color: var(--accent);
+  background: var(--surface-muted);
+}

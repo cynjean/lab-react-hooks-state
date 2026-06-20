@@ -2,35 +2,58 @@ import React, { useState } from 'react'
 import ProductList from './components/ProductList'
 import DarkModeToggle from './components/DarkModeToggle'
 import Cart from './components/Cart'
+import './App.css'
 
 const App = () => {
-  // TODO: Implement state for dark mode toggle
+  const [darkMode, setDarkMode] = useState(false)
+  const [cartItems, setCartItems] = useState([])
+  const [category, setCategory] = useState('all')
 
-  // TODO: Implement state for cart management
+  const handleAddToCart = (product) => {
+    setCartItems((currentItems) => [...currentItems, product])
+  }
 
-  // TODO: Implement state for category filtering
+  const handleCategoryChange = (event) => {
+    setCategory(event.target.value)
+  }
 
   return (
-    <div>
-      <h1>🛒 Shopping App</h1>
-      <p>
-        Welcome! Your task is to implement filtering, cart management, and dark
-        mode.
-      </p>
+    <div className={darkMode ? 'app appDark' : 'app'}>
+      <header className="appHeader">
+        <div>
+          <p className="eyebrow">Fresh picks, simple shopping</p>
+          <h1>Grocery Basket</h1>
+          <p className="intro">Choose your essentials and keep your cart organized.</p>
+        </div>
+        <DarkModeToggle
+          darkMode={darkMode}
+          onToggle={() => setDarkMode((currentMode) => !currentMode)}
+        />
+      </header>
 
-      {/* TODO: Render DarkModeToggle and implement dark mode functionality */}
+      <main className="shoppingLayout">
+        <section className="productsPanel" aria-labelledby="products-heading">
+          <div className="sectionHeading">
+            <div>
+              <p className="sectionLabel">Shop</p>
+              <h2 id="products-heading">Available Products</h2>
+            </div>
 
-      {/* TODO: Implement category filter dropdown */}
-      <label>Filter by Category: </label>
-      <select>
-        <option value="all">All</option>
-        <option value="Fruits">Fruits</option>
-        <option value="Dairy">Dairy</option>
-      </select>
+            <label className="filterControl">
+              <span>Filter by Category</span>
+              <select value={category} onChange={handleCategoryChange}>
+                <option value="all">All</option>
+                <option value="Fruits">Fruits</option>
+                <option value="Dairy">Dairy</option>
+              </select>
+            </label>
+          </div>
 
-      <ProductList />
+          <ProductList category={category} onAddToCart={handleAddToCart} />
+        </section>
 
-      {/* TODO: Implement and render Cart component */}
+        <Cart items={cartItems} />
+      </main>
     </div>
   )
 }

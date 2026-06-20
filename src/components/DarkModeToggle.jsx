@@ -1,10 +1,11 @@
 import React from 'react'
+import styles from '../styles/DarkMode.module.css'
 
-const DarkModeToggle = () => {
-  // TODO: Implement dark mode toggle logic
-
+const DarkModeToggle = ({ darkMode, onToggle }) => {
   return (
-    <button>Toggle Dark Mode {/* TODO: Update this text from Dark to Light dynamically */}</button>
+    <button className={styles.toggle} type="button" onClick={onToggle}>
+      Toggle {darkMode ? 'Light' : 'Dark'} Mode
+    </button>
   )
 }
 
